@@ -1,0 +1,91 @@
+# AWS CLI - EC2
+aws ec2 describe-instances                 # Lister toutes les instances EC2
+aws ec2 run-instances                      # Lancer une nouvelle instance EC2
+aws ec2 stop-instances                     # Arrêter une instance EC2
+aws ec2 start-instances                    # Démarrer une instance EC2
+aws ec2 terminate-instances                # Supprimer une instance EC2
+aws ec2 describe-images                    # Lister toutes les AMIs
+aws ec2 describe-key-pairs                 # Lister les paires de clés
+aws ec2 create-key-pair                    # Créer une nouvelle paire de clés
+aws ec2 describe-security-groups           # Lister les groupes de sécurité
+aws ec2 create-security-group              # Créer un groupe de sécurité
+
+# AWS CLI - S3
+aws s3 ls                                  # Lister tous les buckets S3
+aws s3 mb s3://<bucket-name>               # Créer un bucket S3
+aws s3 rb s3://<bucket-name>               # Supprimer un bucket S3
+aws s3 cp <source> s3://<bucket-name>      # Copier un fichier vers un bucket
+aws s3 sync <local-dir> s3://<bucket-name> # Synchroniser un dossier local avec un bucket S3
+aws s3 rm s3://<bucket-name>/<object>      # Supprimer un objet dans un bucket
+
+# AWS CLI - CloudWatch
+aws cloudwatch describe-alarms             # Lister toutes les alarmes
+aws cloudwatch put-metric-alarm            # Créer une alarme basée sur une métrique
+aws cloudwatch get-metric-data             # Obtenir des données pour une métrique
+aws cloudwatch list-metrics                # Lister toutes les métriques disponibles
+
+# AWS CLI - IAM
+aws iam list-users                         # Lister tous les utilisateurs IAM
+aws iam create-user --user-name <name>     # Créer un utilisateur IAM
+aws iam delete-user --user-name <name>     # Supprimer un utilisateur IAM
+aws iam list-roles                         # Lister tous les rôles IAM
+aws iam create-role                        # Créer un rôle IAM
+aws iam attach-role-policy                 # Attacher une politique à un rôle IAM
+aws iam list-attached-role-policies        # Lister les politiques attachées à un rôle
+
+# AWS CLI - Lambda
+aws lambda list-functions                  # Lister toutes les fonctions Lambda
+aws lambda create-function                 # Créer une nouvelle fonction Lambda
+aws lambda delete-function                 # Supprimer une fonction Lambda
+aws lambda invoke                          # Invoquer une fonction Lambda
+
+# AWS CLI - RDS
+aws rds describe-db-instances              # Lister toutes les instances de base de données RDS
+aws rds create-db-instance                 # Créer une nouvelle instance RDS
+aws rds delete-db-instance                 # Supprimer une instance RDS
+aws rds describe-db-snapshots              # Lister les snapshots RDS
+
+# AWS CLI - CloudFormation
+aws cloudformation describe-stacks         # Lister toutes les stacks CloudFormation
+aws cloudformation create-stack            # Créer une nouvelle stack CloudFormation
+aws cloudformation update-stack            # Mettre à jour une stack existante
+aws cloudformation delete-stack            # Supprimer une stack CloudFormation
+
+# AWS CLI - EKS (Kubernetes)
+aws eks list-clusters                      # Lister tous les clusters EKS
+aws eks describe-cluster                   # Obtenir les détails d’un cluster EKS
+aws eks create-cluster                     # Créer un cluster EKS
+aws eks delete-cluster                     # Supprimer un cluster EKS
+
+# AWS CLI - Elastic Load Balancing (ELB)
+aws elb describe-load-balancers            # Lister tous les load balancers
+aws elb create-load-balancer               # Créer un nouveau load balancer
+aws elb delete-load-balancer               # Supprimer un load balancer
+
+# AWS CLI - Elastic Beanstalk
+aws elasticbeanstalk describe-environments # Lister tous les environnements Elastic Beanstalk
+aws elasticbeanstalk create-environment    # Créer un nouvel environnement Elastic Beanstalk
+aws elasticbeanstalk terminate-environment # Terminer un environnement Elastic Beanstalk
+
+# AWS CLI - Auto Scaling
+aws autoscaling describe-auto-scaling-groups # Lister tous les groupes d’auto scaling
+aws autoscaling create-auto-scaling-group    # Créer un groupe d’auto scaling
+aws autoscaling delete-auto-scaling-group    # Supprimer un groupe d’auto scaling
+
+# AWS CLI - Systems Manager (SSM)
+aws ssm describe-parameters                 # Lister tous les paramètres SSM
+aws ssm get-parameter --name <name>         # Obtenir un paramètre spécifique
+aws ssm put-parameter                       # Créer ou mettre à jour un paramètre
+aws ssm delete-parameter --name <name>      # Supprimer un paramètre
+
+# AWS CLI - EBS
+aws ec2 describe-volumes                    # Lister tous les volumes EBS
+aws ec2 create-volume                       # Créer un volume EBS
+aws ec2 attach-volume                       # Attacher un volume à une instance
+aws ec2 delete-volume                       # Supprimer un volume EBS
+
+# AWS CLI - SNS
+aws sns list-topics                         # Lister tous les topics SNS
+aws sns create-topic --name <name>          # Créer un topic SNS
+aws sns subscribe                           # Souscrire à un topic SNS
+aws sns publish --topic-arn <arn>           # Publier un message sur un topic SNS

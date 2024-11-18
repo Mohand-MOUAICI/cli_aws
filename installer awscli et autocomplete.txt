@@ -1,0 +1,71 @@
+curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
+unzip awscliv2.zip
+sudo ./aws/install
+---------------------------------------------------------------------------------
+---------------
+| AutoComplete|
+---------------
+which aws_completer
+echo $PATH
+nano .bashrc > add le chemain aws_completer exp: conmpleter -C "<chemain>"
+source .bashrc
+________________________________________________________________________________
+aws ec2 run-instances \
+    --image-id ami-xxxxxxxxx \
+    --count 1 \
+    --instance-type t2.xxxxx \
+    --key-name xxxxxxxx \
+    --security-group-ids sg-xxxx \
+    --subnet-id subnet-xxxxxxx \
+    --tag-specifications 'ResourceType=instance,Tags=[{Key=Name,Value=xxxxxx}]'
+________________________________________________________________________________
+aws s3api create-bucket \
+    --bucket my-paris-bucket \
+    --region eu-west-3 \
+    --create-bucket-configuration LocationConstraint=eu-west-3
+
+Liste des buckets S3 existants :
+aws s3 ls
+
+Ajouter un fichier à un bucket :
+aws s3 cp myfile.txt s3://my-bucket-name/
+
+Télécharger un fichier depuis un bucket :
+aws s3 cp s3://my-bucket-name/myfile.txt .
+
+Synchroniser un dossier local avec un bucket :
+aws s3 sync ./local-folder s3://my-bucket-name/
+
+Supprimer un bucket (doit être vide) :
+aws s3api delete-bucket --bucket my-bucket-name --region us-east-1
+
+__________________________________________________________________________________
+aws lambda create-function \
+    --function-name MyLambdaFunction \
+    --runtime python3.9 \
+    --role arn:aws:iam::123456789012:role/service-role/MyLambdaRole \
+    --handler lambda_function.lambda_handler \
+    --zip-file fileb://function.zip \
+    --timeout 15 \
+    --memory-size 128
+
+
+
+aws lambda update-function-code \
+    --function-name MyLambdaFunction \
+    --zip-file fileb://function.zip
+
+
+aws lambda list-functions
+
+
+
+aws lambda invoke \
+    --function-name MyLambdaFunction \
+    --payload '{"key1": "value1", "key2": "value2"}' \
+    response.json
+
+
+aws lambda delete-function --function-name MyLambdaFunction
+
+
